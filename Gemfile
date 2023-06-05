@@ -64,3 +64,8 @@ group :development do
   # gem "spring"
 end
 
+gem 'httparty'
+
+gem 'sigma-rails', '~> 1.0', '>= 1.0.2'
+
+gem 'rexml'
