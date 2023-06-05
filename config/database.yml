@@ -20,6 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  port: 5432
+  username: irina
+  password: 111111
 
 development:
   <<: *default
@@ -82,5 +86,3 @@ test:
 production:
   <<: *default
   database: Urban_Topology_production
-  username: Urban_Topology
-  password: <%= ENV["URBAN_TOPOLOGY_DATABASE_PASSWORD"] %>
