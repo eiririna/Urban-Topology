@@ -3,7 +3,7 @@
 module OverpassApi
   class RoutesSaverService
     def self.call(route)
-        Route.create(
+        Route.find_or_create_by(
           from: route.dig('tags', 'from'),
           to: route.dig('tags', 'to'),
           route: route.dig('tags', 'route'),

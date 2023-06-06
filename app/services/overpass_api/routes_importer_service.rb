@@ -14,10 +14,10 @@ module OverpassApi
         route.dig("members").each do |member|
           node_id = member.dig("ref")
 
-          if member.dig("type") == "node"
+          if member.dig("role") == "stop"
             stop_data = OpenstreetmapApi::Client.get_node(node_id)
             public_stop = Stop.find_or_create_by(stop_data)
-            RouteStop.create(route_id: public_route.id, stop_id: public_stop.id)
+            RouteStop.find_or_create_by(route_id: public_route.id, stop_id: public_stop.id)
           end
         end
       end

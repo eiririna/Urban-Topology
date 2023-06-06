@@ -21,7 +21,8 @@ module OpenstreetmapApi
       node_data = Hash.from_xml(xml)['osm']['node']
       lat = node_data['lat']
       lon = node_data['lon']
-      name = node_data['tag'].find { |tag| tag['k'] == 'name' }['v']
+      name_tag = node_data['tag'].find { |tag| tag['k'] == 'name' }
+      name = name_tag.present? ? name_tag['v'] : ""
       { lat: lat, lon: lon, name: name, ref: node_id }
     end
   end
